@@ -6,9 +6,9 @@
 Name: cassandra
 Component: "cassandra"
 replicaCount: 3
-Image: "xtoph/azcassandra"
+Image: "xtoph/azure-cassandra"
 VmInstanceType: "Standard_DS4_v2"
-ImageTag: "v2"
+ImageTag: "v12"
 ImagePullPolicy: "Always"
 
 # Cassandra configuration options
