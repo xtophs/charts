@@ -19,16 +19,17 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{ template "fullname" . }}-ext"
+  annotations:
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  name: "{{ template "fullname" . }}-internal"
   labels:
     app: {{ template "fullname" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
-    heritage: "{{ .Release.Service }}"
 spec:
   ports:
   - name: {{ template "fullname" . }}
     port: 9042
   selector:
     app: {{ template "fullname" . }}
-  type: "LoadBalancer"
+  type: "LoadBalancer"  
